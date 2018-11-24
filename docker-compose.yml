@@ -26,7 +26,7 @@ services:
   flyway-clean:
     image: boxfuse/flyway
     volumes:
-      - ./docker/flyway/sql:/flyway/sql
+      - ./core/src/main/resources/db:/flyway/sql
       - ./docker/flyway/config:/flyway/conf
     depends_on:
       - db
@@ -35,7 +35,7 @@ services:
   flyway-migrate:
     image: boxfuse/flyway
     volumes:
-      - ./docker/flyway/sql:/flyway/sql
+      - ./core/src/main/resources/db:/flyway/sql
       - ./docker/flyway/config:/flyway/conf
     depends_on:
       - db
@@ -44,7 +44,7 @@ services:
   flyway-info:
     image: boxfuse/flyway
     volumes:
-      - ./docker/flyway/sql:/flyway/sql
+      - ./core/src/main/resources/db:/flyway/sql
       - ./docker/flyway/config:/flyway/conf
     depends_on:
       - db

@@ -32,6 +32,8 @@ repositories {
 }
 
 dependencies {
+    compile project(":core")
+    
     compile('org.springframework.boot:spring-boot-starter-thymeleaf')
     compile('org.springframework.boot:spring-boot-starter-web')
     compile('com.fasterxml.jackson.module:jackson-module-kotlin')
