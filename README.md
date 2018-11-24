@@ -1,33 +1,20 @@
 # Kotlin Spring サンプル
 
-## やりたいこと
+## Docker
 
-- 一つのリポジトリに複数のプロジェクト（IntelliJ IDEAでいうモジュール）を作成する
-- 複数のGit(Github, Bitbucket)に登録する
-- 複数のCIを対応する
+- DBコンテナ起動
+```
+docker-compose up -d db
+```
 
-## プロジェクト
+- flyway
+```
+docker-compose run --rm flyway-clean
+docker-compose run --rm flyway-migrate
+docker-compose run --rm flyway-info
+```
 
-- core
-- api
-- web
-- batch
-
-## CI
-
-- Bitbucket pipeline
-- CircleCI
-
-## ローカル環境
-
-- H2 でJUnit
-- Docker で DBを使った動作確認
-
-## その他の環境
-
-- Heroku  
-  Procfile を工夫すれば
-- AWS
-
-
-## なにを作る？？？
+- SchemaSpy
+```
+docker-compose run --rm schemaspy
+```
