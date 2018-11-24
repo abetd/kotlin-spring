@@ -1,0 +1,51 @@
+version: '3.4'
+
+services:
+  db:
+    image: postgres:10.6-alpine
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5433:5432"
+    container_name: postgres-mydb
+    volumes:
+      - ./docker/db/initdb:/docker-entrypoint-initdb.d
+      - ./docker/db/data:/var/lib/postgresql/data
+
+  schemaspy:
+    image: schemaspy/schemaspy
+    container_name: schemaspy-mydb
+    volumes:
+      - ./docker/schema/docs:/output
+      - ./docker/schema/config:/config
+    depends_on:
+      - db
+    command: ["-configFile", "/config/schemaspy.properties"]
+
+  flyway-clean:
+    image: boxfuse/flyway
+    volumes:
+      - ./docker/flyway/sql:/flyway/sql
+      - ./docker/flyway/config:/flyway/conf
+    depends_on:
+      - db
+    command: clean
+
+  flyway-migrate:
+    image: boxfuse/flyway
+    volumes:
+      - ./docker/flyway/sql:/flyway/sql
+      - ./docker/flyway/config:/flyway/conf
+    depends_on:
+      - db
+    command: migrate
+
+  flyway-info:
+    image: boxfuse/flyway
+    volumes:
+      - ./docker/flyway/sql:/flyway/sql
+      - ./docker/flyway/config:/flyway/conf
+    depends_on:
+      - db
+    command: info

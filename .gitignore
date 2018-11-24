@@ -74,6 +74,10 @@ gradle-app.setting
 *.iws
 *.ipr
 
+# docker
+docker/db/data/
+docker/schema/docs/
+
 # OS
 Thumbs.db
 .DS_Store
