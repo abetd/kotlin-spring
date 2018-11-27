@@ -10,7 +10,6 @@ buildscript {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
         classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:${kotlinVersion}")
         classpath("org.jetbrains.kotlin:kotlin-allopen:${kotlinVersion}")
-        classpath 'org.postgresql:postgresql:42.2.2'
         classpath 'org.flywaydb:flyway-gradle-plugin:4.2.0'
     }
 }
@@ -56,10 +55,9 @@ test {
 }
 
 flyway {
-    driver = 'org.postgresql.Driver'
-    url = 'jdbc:postgresql://localhost:5433/test_db'
-    user = 'postgres'
-    password = 'postgres'
+    url = 'jdbc:h2:mem:mydb'
+    user = 'sa'
+    password
     locations = [
             'classpath:db/migration','classpath:db/callback'
     ]
