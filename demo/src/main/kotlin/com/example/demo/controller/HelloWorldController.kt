@@ -24,7 +24,7 @@ class HelloWorldController {
     @RequestMapping(value= "/hello", method = arrayOf(RequestMethod.POST))
     fun hello(model: Model, helloForm: HelloForm) : String {
         // model.addAttribute("name", helloForm.name)
-        model.addAttribute("name", userMapper.select(1).name)
+        model.addAttribute("name", userMapper.select(2).name)
         return "hello_world"
     }
 }
