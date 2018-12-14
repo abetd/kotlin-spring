@@ -14,10 +14,22 @@ buildscript {
     }
 }
 
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'eclipse'
 apply plugin: 'kotlin'
 apply plugin: 'kotlin-spring'
 apply plugin: 'org.flywaydb.flyway'
 apply plugin: 'io.spring.dependency-management'
+
+sourceSets {
+    main {
+        resources.srcDirs = [
+                "src/main/resources",
+                "src/main/kotlin"
+        ]
+    }
+}
 
 group 'exmple.com'
 version '1.0-SNAPSHOT'

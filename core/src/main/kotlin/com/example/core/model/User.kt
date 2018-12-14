@@ -1,6 +1,3 @@
 package com.example.core.model
 
-class User {
-    var id: Int = 0
-    var name: String = ""
-}
+data class User (val id: Int, val name: String)

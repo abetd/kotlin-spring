@@ -21,8 +21,8 @@ CREATE TABLE skill_tag_relation (
 
 CREATE TABLE levels (
     id int NOT NULL PRIMARY KEY,
-    mark CHAR NOT NULL,
-    discription varchar(32) NOT NULL
+    mark varchar(3) NOT NULL,
+    description varchar(32) NOT NULL
 );
 
 CREATE TABLE skill_maps (

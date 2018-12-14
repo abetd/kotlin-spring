@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.core.infrastructure.MemberSkillMapMapper">
+
+    <resultMap id="skillMap" type="com.example.core.model.SkillMap">
+        <association property="member" javaType="com.example.core.model.Member">
+            <result property="id" column="member_id" javaType="java.lang.Integer" />
+            <result property="name" column="member_name" javaType="java.lang.String" />
+        </association>
+        <association property="skill" javaType="com.example.core.model.Skill">
+            <result property="id" column="skill_id" javaType="java.lang.Integer" />
+            <result property="name" column="skill_name" javaType="java.lang.String" />
+        </association>
+        <association property="level" javaType="com.example.core.model.Level">
+            <result property="id" column="level_id" javaType="java.lang.Integer" />
+            <result property="mark" column="level_make" javaType="java.lang.String" />
+            <result property="description" column="level_description" javaType="java.lang.String" />
+        </association>
+    </resultMap>
+
+    <select id="findAll" resultMap="skillMap">
+        SELECT
+          members.id as member_id,
+          members.name as member_name,
+          skills.id as skill_id,
+          skills.name as skill_name,
+          levels.id as level_id,
+          levels.mark as level_make,
+          levels.description as level_description
+        FROM
+          members members
+          INNER JOIN skill_maps skill_maps
+            ON members.id = skill_maps.member_id
+          INNER JOIN skills skills
+            ON skill_maps.skill_id = skills.id
+          INNER JOIN levels levels
+            ON skill_maps.level_id = levels.id
+    </select>
+</mapper>
