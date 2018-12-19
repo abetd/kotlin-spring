@@ -1,1 +1,2 @@
 apply plugin: 'idea'
+task stage(dependsOn: ['installDist'])
