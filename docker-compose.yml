@@ -13,6 +13,16 @@ services:
       - ./docker/db/initdb:/docker-entrypoint-initdb.d
       - ./docker/db/data:/var/lib/postgresql/data
 
+  app-demo:
+    image: openjdk:8-jdk-alpine
+    ports:
+      - "8081:8080"
+    container_name: kotlin-spring_app-demo
+    volumes:
+      - .:/app
+    working_dir: /app
+    command: ./gradlew demo:bootRun
+
   schemaspy:
     image: schemaspy/schemaspy
     container_name: schemaspy-mydb
