@@ -1,4 +1,4 @@
-package com.example.demo.presentation.controller
+package com.example.demo.presentation.controller.sandbox
 
 import com.example.core.infrastructure.datasource.UserMapper
 import org.springframework.beans.factory.annotation.Autowired
@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestMethod
 
 @Controller
-@RequestMapping("hello_world")
+@RequestMapping("sandbox/hello_world")
 class HelloWorldController {
 
     @Autowired
@@ -17,7 +17,7 @@ class HelloWorldController {
     @RequestMapping(method = arrayOf(RequestMethod.GET))
     fun root(model: Model, helloForm: HelloForm) : String {
         model.addAttribute("name", "world!")
-        return "hello_world"
+        return "sandbox/hello_world"
     }
 
     // TODO Formでidを指定して検索する。または、テーブルをうまく使う。。
@@ -25,6 +25,6 @@ class HelloWorldController {
     fun hello(model: Model, helloForm: HelloForm) : String {
         // model.addAttribute("name", helloForm.name)
         model.addAttribute("name", userMapper.select(2).name)
-        return "hello_world"
+        return "sandbox/hello_world"
     }
 }

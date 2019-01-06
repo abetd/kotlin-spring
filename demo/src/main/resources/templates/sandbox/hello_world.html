@@ -7,7 +7,7 @@
 <body>
     <p>Hello </p><p th:text="${name}"></p>
 
-    <form th:action="@{/hello_world/hello}" th:object="${helloForm}" th:method="post">
+    <form th:action="@{/sandbox/hello_world/hello}" th:object="${helloForm}" th:method="post">
         <p>Name: <input type="text" th:field="*{name}"/></p>
         <p><input type="submit" value="Submit"/></p>
     </form>

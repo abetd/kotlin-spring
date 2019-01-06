@@ -1,4 +1,4 @@
-package com.example.demo.presentation.controller
+package com.example.demo.presentation.controller.sandbox
 
 import org.hibernate.validator.constraints.NotBlank
 
