@@ -1,7 +1,6 @@
-package com.example.core.mapper
+package com.example.core.infrastructure.datasource
 
 import com.example.core.TestConfiguration
-import com.example.core.infrastructure.MemberSkillMapMapper
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test

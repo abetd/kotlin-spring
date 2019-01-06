@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.example.core.infrastructure.MemberSkillMapMapper">
+<mapper namespace="com.example.core.infrastructure.datasource.MemberSkillMapMapper">
 
-    <resultMap id="skillMap" type="com.example.core.model.SkillMap">
-        <association property="member" javaType="com.example.core.model.Member">
+    <resultMap id="skillMap" type="com.example.core.domain.model.SkillMap">
+        <association property="member" javaType="com.example.core.domain.model.Member">
             <result property="id" column="member_id" javaType="java.lang.Integer" />
             <result property="name" column="member_name" javaType="java.lang.String" />
         </association>
-        <association property="skill" javaType="com.example.core.model.Skill">
+        <association property="skill" javaType="com.example.core.domain.model.Skill">
             <result property="id" column="skill_id" javaType="java.lang.Integer" />
             <result property="name" column="skill_name" javaType="java.lang.String" />
         </association>
-        <association property="level" javaType="com.example.core.model.Level">
+        <association property="level" javaType="com.example.core.domain.model.Level">
             <result property="id" column="level_id" javaType="java.lang.Integer" />
             <result property="mark" column="level_make" javaType="java.lang.String" />
             <result property="description" column="level_description" javaType="java.lang.String" />

@@ -1,6 +1,6 @@
-package com.example.core.infrastructure
+package com.example.core.infrastructure.datasource
 
-import com.example.core.model.SkillMap
+import com.example.core.domain.model.SkillMap
 import org.apache.ibatis.annotations.Mapper
 
 @Mapper

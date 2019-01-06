@@ -1,4 +1,4 @@
-package com.example.core.model
+package com.example.core.domain.model
 
 class Level {
     var id = 0
