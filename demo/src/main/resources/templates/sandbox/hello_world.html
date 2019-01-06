@@ -2,14 +2,20 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.1/dist/semantic.min.css">
     <title>Hello World!</title>
 </head>
 <body>
-    <p>Hello </p><p th:text="${name}"></p>
+<div class="ui container">
+    <h2 class="ui center aligned header">Hello <label th:text="${name}"></label></h2>
 
-    <form th:action="@{/sandbox/hello_world/hello}" th:object="${helloForm}" th:method="post">
-        <p>Name: <input type="text" th:field="*{name}"/></p>
-        <p><input type="submit" value="Submit"/></p>
+    <form class="ui form" th:action="@{/sandbox/hello_world/hello}" th:object="${helloForm}" th:method="post">
+        <div class="ui text-input">
+            <label>Name</label>
+            <input type="text" th:field="*{name}"/>
+        </div>
+        <input class="ui positive button" type="submit" value="Submit"/>
     </form>
+</div>
 </body>
 </html>
