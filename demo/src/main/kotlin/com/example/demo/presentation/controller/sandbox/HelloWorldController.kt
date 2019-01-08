@@ -1,6 +1,6 @@
 package com.example.demo.presentation.controller.sandbox
 
-import com.example.core.infrastructure.datasource.UserMapper
+import com.example.core.application.service.UserService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod
 class HelloWorldController {
 
     @Autowired
-    lateinit var userMapper: UserMapper
+    lateinit var userService: UserService
 
     @RequestMapping(method = arrayOf(RequestMethod.GET))
     fun root(model: Model, helloForm: HelloForm) : String {
@@ -24,7 +24,7 @@ class HelloWorldController {
     @RequestMapping(value= "/hello", method = arrayOf(RequestMethod.POST))
     fun hello(model: Model, helloForm: HelloForm) : String {
         // model.addAttribute("name", helloForm.name)
-        model.addAttribute("name", userMapper.select(2).name)
+        model.addAttribute("name", userService.select(2).name)
         return "sandbox/hello_world"
     }
 }
