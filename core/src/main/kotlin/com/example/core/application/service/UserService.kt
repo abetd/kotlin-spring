@@ -12,6 +12,6 @@ class UserService {
     lateinit var userRepository: UserRepository
 
     fun select(id: Int): User {
-        return userRepository.select(id)
+        return userRepository.select(id)?: User()
     }
 }

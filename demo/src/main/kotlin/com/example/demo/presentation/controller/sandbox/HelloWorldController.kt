@@ -1,6 +1,7 @@
 package com.example.demo.presentation.controller.sandbox
 
 import com.example.core.application.service.UserService
+import com.example.core.domain.model.User
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
@@ -20,11 +21,10 @@ class HelloWorldController {
         return "sandbox/hello_world"
     }
 
-    // TODO Formでidを指定して検索する。または、テーブルをうまく使う。。
     @RequestMapping(value= "/hello", method = arrayOf(RequestMethod.POST))
     fun hello(model: Model, helloForm: HelloForm) : String {
-        // model.addAttribute("name", helloForm.name)
-        model.addAttribute("name", userService.select(2).name)
+        var user: User = userService.select(helloForm.id)
+        model.addAttribute("name", user.name)
         return "sandbox/hello_world"
     }
 }

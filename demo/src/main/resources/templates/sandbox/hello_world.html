@@ -22,8 +22,8 @@
 
   <form class="ui form" th:action="@{/sandbox/hello_world/hello}" th:object="${helloForm}" th:method="post">
     <div class="ui text-input">
-      <label>Name</label>
-      <input type="text" th:field="*{name}"/>
+      <label>ID</label>
+      <input type="text" th:field="*{id}"/>
     </div>
     <input class="ui positive button" type="submit" value="Submit"/>
   </form>
