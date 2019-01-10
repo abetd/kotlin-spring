@@ -29,5 +29,5 @@ CREATE TABLE skill_maps (
     member_id int NOT NULL REFERENCES members(id),
     skill_id int NOT NULL REFERENCES skills(id),
     level_id int NOT NULL REFERENCES levels(id),
-    CONSTRAINT skill_maps_pkey PRIMARY KEY(member_id, skill_id, level_id)
+    CONSTRAINT skill_maps_pkey PRIMARY KEY(member_id, skill_id)
 );

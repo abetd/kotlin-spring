@@ -1,6 +1,6 @@
-package com.example.core.infrastructure.datasource
+package com.example.core.infrastructure.datasource.sandbox
 
-import com.example.core.domain.model.User
+import com.example.core.domain.model.sandbox.User
 import org.apache.ibatis.annotations.Mapper
 import org.apache.ibatis.annotations.Select
 

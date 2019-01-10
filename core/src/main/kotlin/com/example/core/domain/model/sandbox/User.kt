@@ -1,4 +1,4 @@
-package com.example.core.domain.model
+package com.example.core.domain.model.sandbox
 
 data class User (
     val id: Int = 0,

@@ -1,6 +1,7 @@
-package com.example.core.infrastructure.datasource
+package com.example.core.infrastructure.datasource.sandbox
 
 import com.example.core.TestConfiguration
+import com.example.core.infrastructure.datasource.MemberSkillMapMapper
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
@@ -16,17 +17,7 @@ import org.springframework.test.context.junit.jupiter.SpringExtension
 class UserMapperTest {
 
     @Autowired
-    lateinit var userMapper: UserMapper
-
-    @Autowired
     lateinit var skillMapMapper: MemberSkillMapMapper
-
-    @Test
-    @DisplayName("Mapperのテストサンプル")
-    fun userSelect() {
-        val actual = userMapper.select(1)
-        assertEquals("hogehoge", actual.name)
-    }
 
     @Test
     @DisplayName("Mapperのテストサンプル")
